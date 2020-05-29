@@ -41,3 +41,12 @@
         画像ファイル出力C
     / ループ処理修了
   .MainFooter
+    %form.Form
+      .Form__InputBox
+        %input.Form__InputBox__message{"placeholder": "type a message", "type": "text"}
+        %label.Form__InputBox__image
+          = icon('far', "image")
+          %input.Form__InputBox__image--file{type: "file"}
+        -# = link_to "#", class: "Form__inputBox--iconBtn" do
+        -#   = icon('fas', 'cog')
+      %input.Form__submitBtn{"name": "commit", "type": "submit", "value": "Send"}

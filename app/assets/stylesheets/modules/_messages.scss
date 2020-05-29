@@ -118,6 +118,38 @@
     .MainFooter{
       background-color: #d2d2d2;
       height: 90px;
+      padding: 20px 40px;
+      .Form{
+        display: flex;
+        &__InputBox{
+          width: 100%;
+          position: relative;
+          &__message{
+            height: 50px;
+            width: 100%;
+            padding-left: 10px;
+            border: none;
+          }
+          &__image{
+            position: absolute;
+            right: 10px;
+            font-size: 25px;
+            line-height: 50px;
+            &--file{
+              display: none;
+            }
+          }
+        }
+        &__submitBtn{
+          background-color: #38AEF0;
+          color: #ffffff;
+          border: none;
+          font-size: 16px;
+          padding: 0 30px;
+          height: 50px;
+          margin-left: 15px;
+        }
+      }
     }
   }
 }
