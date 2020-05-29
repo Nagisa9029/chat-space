@@ -9,6 +9,30 @@
     width: 300px;
     .SideHeader{
       height: 100px;
+      display: flex;
+      align-items: center;
+      &__list{
+        height: 20px;
+        width: 260px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__userName{
+          line-height: 20px;
+          color: #ffffff;
+        }
+        &__iconList{
+          line-height: 20px;
+          width: 60px;
+          text-align: right;
+          &--iconBtn{
+            text-decoration: none;
+            color: #ffffff;
+            margin-left: 5px;
+          }
+        }
+      }
     }
     .SideGroupLists{
       background-color: #2f3e51;
