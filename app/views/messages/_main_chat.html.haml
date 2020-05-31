@@ -1,0 +1,50 @@
+.MainChat
+  .MainHeader
+    .MainHeader__LeftHeader
+      .MainHeader__LeftHeader__GroupName
+        Test
+      .MainHeader__LeftHeader__GroupMember
+        Member : MenberName1, MenberName2
+    = link_to "#", class: "MainHeader__RightHeader" do
+      Edit
+  .MainMessages
+    / ループ処理開始（Controller実装後、ループ処理に修正）
+    .ChatField
+      .ChatField__Info
+        .ChatField__Info__Name
+          Nagisa
+        .ChatField__Info__CreatedAt
+          2020/05/29(Web) 18:23:43
+      .ChatField__Message
+        おはよう！！
+      .ChatField__Image
+        画像ファイル出力A
+    .ChatField
+      .ChatField__Info
+        .ChatField__Info__Name
+          Rina
+        .ChatField__Info__CreatedAt
+          2020/04/12(Web) 15:19:43
+      .ChatField__Message
+        Ciao!!
+      .ChatField__Image
+        画像ファイル出力B
+    .ChatField
+      .ChatField__Info
+        .ChatField__Info__Name
+          Diana
+        .ChatField__Info__CreatedAt
+          2020/03/03(Web) 15:19:43
+      .ChatField__Message
+        New Journey！！
+      .ChatField__Image
+        画像ファイル出力C
+    / ループ処理修了
+  .MainFooter
+    %form.Form
+      .Form__InputBox
+        %input.Form__InputBox__message{"placeholder": "type a message", "type": "text"}
+        %label.Form__InputBox__image
+          = icon('far', "image")
+          %input.Form__InputBox__image--file{type: "file"}
+      %input.Form__submitBtn{"name": "commit", "type": "submit", "value": "Send"}
