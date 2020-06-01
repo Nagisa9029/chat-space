@@ -9,17 +9,9 @@
         = link_to edit_user_path(current_user.id), class: "SideHeader__list__iconList--iconBtn" do
           = icon('fas', 'cog')
   .SideGroupLists
-    .SideGroupLists__Group
-      / 以下、テーブル（controller)実装後、ループ処理に修正
-      .SideGroupLists__Group__GroupName
-        Volcano
-      .SideGroupLists__Group__NewMessage
-        Happy Birthday!!
-      .SideGroupLists__Group__GroupName
-        Ch.Latorl
-      .SideGroupLists__Group__NewMessage
-        一級ワイン
-      .SideGroupLists__Group__GroupName
-        KFC
-      .SideGroupLists__Group__NewMessage
-        <ケンタッキー大好き>
+    - current_user.groups.each do |group|
+      = link_to '#', class: "SideGroupLists__Group" do
+        .SideGroupLists__Group__GroupName
+          = group.name
+        .SideGroupLists__Group__NewMessage
+          Happy Birthday!!
