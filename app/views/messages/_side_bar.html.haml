@@ -4,7 +4,7 @@
       .SideHeader__list__userName
         = current_user.name
       .SideHeader__list__iconList
-        = link_to "#", class: "SideHeader__list__iconList--iconBtn" do
+        = link_to new_group_path, class: "SideHeader__list__iconList--iconBtn" do
           = icon('fas', 'edit')
         = link_to edit_user_path(current_user.id), class: "SideHeader__list__iconList--iconBtn" do
           = icon('fas', 'cog')
