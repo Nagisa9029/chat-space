@@ -7,10 +7,22 @@ class MessagesController < ApplicationController
   end
 
   def create
-    
+    @message = @group.messages.new(message_params)
+    # binding.pry
+    if @message.save
+      redirect_to group_messages_path(@group), notice: 'メッサージが送信されました'
+    else
+      @messages = @group.messages.includes(:user)
+      flash.now[:alert] = 'メッサージを入力してください'
+      render :index
+    end
   end
 
   private
+  def message_params
+    params.require(:message).permit(:comment, :image).merge(user_id: current_user.id)
+  end
+
   def set_group
     @group = Group.find(params[:group_id])
   end

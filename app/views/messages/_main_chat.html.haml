@@ -39,12 +39,12 @@
         New Journey！！
       .ChatField__Image
         画像ファイル出力C
-    / ループ処理修了
+
   .MainFooter
-    %form.Form
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__InputBox
-        %input.Form__InputBox__message{"placeholder": "type a message", "type": "text"}
-        %label.Form__InputBox__image
+        = f.text_field :comment, class: 'Form__InputBox__message', placeholder: 'type a message'
+        = f.label :image, class: 'Form__InputBox__image' do
           = icon('far', "image")
-          %input.Form__InputBox__image--file{type: "file"}
-      %input.Form__submitBtn{"name": "commit", "type": "submit", "value": "Send"}
+          = f.file_field :image, class: 'Form__InputBox__image--file'
+      = f.submit 'Send', class: 'Form__submitBtn'
