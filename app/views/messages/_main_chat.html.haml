@@ -2,10 +2,12 @@
   .MainHeader
     .MainHeader__LeftHeader
       .MainHeader__LeftHeader__GroupName
-        Test
+        = @group.name
       .MainHeader__LeftHeader__GroupMember
-        Member : MenberName1, MenberName2
-    = link_to "#", class: "MainHeader__RightHeader" do
+        Member : 
+        - @group.users.each do |user|
+          = user.name
+    = link_to edit_group_path(@group), class: "MainHeader__RightHeader" do
       Edit
       
   .MainMessages
