@@ -1,0 +1,10 @@
+.ChatField
+  .ChatField__Info
+    .ChatField__Info__Name
+      = message.user.name
+    .ChatField__Info__CreatedAt
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .ChatField__Message
+    - if message.comment.present?
+      = message.comment
+    = image_tag message.image.url, class: 'ChatField__Image' if message.image.present?

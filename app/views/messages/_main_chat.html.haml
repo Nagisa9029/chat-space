@@ -2,49 +2,22 @@
   .MainHeader
     .MainHeader__LeftHeader
       .MainHeader__LeftHeader__GroupName
-        Test
+        = @group.name
       .MainHeader__LeftHeader__GroupMember
-        Member : MenberName1, MenberName2
-    = link_to "#", class: "MainHeader__RightHeader" do
+        Member : 
+        - @group.users.each do |user|
+          = user.name
+    = link_to edit_group_path(@group), class: "MainHeader__RightHeader" do
       Edit
+      
   .MainMessages
-    / ループ処理開始（Controller実装後、ループ処理に修正）
-    .ChatField
-      .ChatField__Info
-        .ChatField__Info__Name
-          Nagisa
-        .ChatField__Info__CreatedAt
-          2020/05/29(Web) 18:23:43
-      .ChatField__Message
-        おはよう！！
-      .ChatField__Image
-        画像ファイル出力A
-    .ChatField
-      .ChatField__Info
-        .ChatField__Info__Name
-          Rina
-        .ChatField__Info__CreatedAt
-          2020/04/12(Web) 15:19:43
-      .ChatField__Message
-        Ciao!!
-      .ChatField__Image
-        画像ファイル出力B
-    .ChatField
-      .ChatField__Info
-        .ChatField__Info__Name
-          Diana
-        .ChatField__Info__CreatedAt
-          2020/03/03(Web) 15:19:43
-      .ChatField__Message
-        New Journey！！
-      .ChatField__Image
-        画像ファイル出力C
-    / ループ処理修了
+    = render @messages
+
   .MainFooter
-    %form.Form
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__InputBox
-        %input.Form__InputBox__message{"placeholder": "type a message", "type": "text"}
-        %label.Form__InputBox__image
+        = f.text_field :comment, class: 'Form__InputBox__message', placeholder: 'type a message'
+        = f.label :image, class: 'Form__InputBox__image' do
           = icon('far', "image")
-          %input.Form__InputBox__image--file{type: "file"}
-      %input.Form__submitBtn{"name": "commit", "type": "submit", "value": "Send"}
+          = f.file_field :image, class: 'Form__InputBox__image--file'
+      = f.submit 'Send', class: 'Form__submitBtn'
