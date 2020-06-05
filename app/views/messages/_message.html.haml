@@ -8,4 +8,4 @@
     - if message.comment.present?
       %p.ChatField__Message__comment
         = message.comment
-    = image_tag message.image.url, class: 'ChatField__Message__Image' if message.image.present?
+    = image_tag message.image_url, class: 'ChatField__Message__Image' if message.image.present?
