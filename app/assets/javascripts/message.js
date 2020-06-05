@@ -1,3 +1,5 @@
 $(function(){
-  console.log("JQuery実装")
+  $('.Form').on('submit', function(){
+    console.log("JQuery実装")
+  })
 });
