@@ -52,7 +52,10 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      console.log(html);
+      $('.MainMessages').append(html);
+      $('.MainMessages').animate({ scrollTop: $('.MainMessages')[0].scrollHeight});
+      $('form')[0].reset();
+      $('.Form__submitBtn').prop('disabled', false);
     })
   })
 });
